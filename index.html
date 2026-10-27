@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Welcome to BIBFE1213 Introduction to Generative AI Tools.">
+  <title>Welcome | BIBFE1213 Introduction to Generative AI Tools</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17243b;
+      --muted: #647087;
+      --paper: #fbfaf7;
+      --purple: #6f54d9;
+      --purple-dark: #4b36ad;
+      --mint: #d9f3e8;
+      --peach: #ffe4d5;
+      --yellow: #ffda7a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", Arial, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .page-shell {
+      max-width: 1160px;
+      width: calc(100% - 48px);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 26px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--ink);
+      font-size: 0.94rem;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 12px;
+      background: var(--purple);
+      color: white;
+      font-size: 1.1rem;
+    }
+
+    .topbar-note {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 500px;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 40px;
+      overflow: hidden;
+      padding: 64px clamp(28px, 7vw, 82px);
+      border-radius: 30px;
+      background: #f0edff;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin: 0 0 18px;
+      color: var(--purple-dark);
+      font-size: 0.77rem;
+      font-weight: 800;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .greeting {
+      margin-bottom: 12px;
+      font-size: clamp(1.55rem, 2.7vw, 2.1rem);
+      letter-spacing: -0.035em;
+      text-transform: none;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin: 0;
+      font-size: clamp(2.8rem, 5.2vw, 4.55rem);
+      letter-spacing: -0.065em;
+      line-height: 1.06;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--purple);
+    }
+
+    .hero-description {
+      max-width: 500px;
+      margin: 22px 0 28px;
+      color: #4e5a71;
+      font-size: 1.08rem;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border-radius: 14px;
+      background: var(--purple);
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      background: var(--purple-dark);
+    }
+
+    .button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #26314a;
+      outline-offset: 4px;
+    }
+
+    .hero-art {
+      position: relative;
+      display: grid;
+      min-height: 300px;
+      place-items: center;
+    }
+
+    .art-orbit {
+      position: absolute;
+      width: min(310px, 75vw);
+      aspect-ratio: 1;
+      border: 1px dashed rgb(111 84 217 / 35%);
+      border-radius: 50%;
+    }
+
+    .art-orbit::before,
+    .art-orbit::after {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      content: "";
+    }
+
+    .art-orbit::before {
+      top: 29px;
+      right: 34px;
+      background: var(--yellow);
+    }
+
+    .art-orbit::after {
+      bottom: 31px;
+      left: 18px;
+      background: #ff9a8b;
+    }
+
+    .art-card {
+      position: relative;
+      display: grid;
+      width: 210px;
+      height: 230px;
+      place-items: center;
+      transform: rotate(-5deg);
+      border: 1px solid rgb(255 255 255 / 80%);
+      border-radius: 28px;
+      background: rgb(255 255 255 / 82%);
+      box-shadow: 0 24px 60px rgb(64 45 131 / 14%);
+    }
+
+    .spark {
+      position: absolute;
+      top: 38px;
+      right: 35px;
+      color: #f4ae29;
+      font-size: 1.65rem;
+    }
+
+    .brain {
+      font-size: 5.4rem;
+      line-height: 1;
+    }
+
+    .art-label {
+      position: absolute;
+      bottom: 29px;
+      color: var(--purple-dark);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .welcome {
+      padding: 78px 0 28px;
+      text-align: center;
+    }
+
+    .welcome h2,
+    .journey h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 3.2vw, 2.7rem);
+      letter-spacing: -0.045em;
+      line-height: 1.2;
+    }
+
+    .welcome p {
+      max-width: 680px;
+      margin: 15px auto 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+    }
+
+    .journey {
+      padding: 48px 0 86px;
+    }
+
+    .journey-heading {
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .journey-heading .eyebrow {
+      margin-bottom: 10px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      min-height: 205px;
+      padding: 25px;
+      border: 1px solid #ece9e2;
+      border-radius: 20px;
+      background: white;
+    }
+
+    .card-icon {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      font-size: 1.3rem;
+    }
+
+    .card:nth-child(1) .card-icon {
+      background: var(--mint);
+    }
+
+    .card:nth-child(2) .card-icon {
+      background: var(--peach);
+    }
+
+    .card:nth-child(3) .card-icon {
+      background: #fff1bd;
+    }
+
+    .card h3 {
+      margin: 0 0 7px;
+      font-size: 1.08rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    footer {
+      padding: 24px 0 30px;
+      border-top: 1px solid #e9e6de;
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 48px 30px 28px;
+      }
+
+      .hero-art {
+        min-height: 250px;
+      }
+
+      .art-orbit {
+        width: 230px;
+      }
+
+      .art-card {
+        width: 170px;
+        height: 185px;
+      }
+
+      .brain {
+        font-size: 4.4rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-shell {
+        width: calc(100% - 30px);
+      }
+
+      .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding: 18px 0;
+      }
+
+      .hero {
+        border-radius: 22px;
+        padding: 38px 22px 22px;
+      }
+
+      .hero-description {
+        font-size: 1rem;
+      }
+
+      .welcome {
+        padding-top: 58px;
+      }
+
+      .journey {
+        padding: 40px 0 60px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-shell topbar">
+    <a class="brand" href="#home" aria-label="BIBFE1213 course home">
+      <span class="brand-mark" aria-hidden="true">✦</span>
+      <span>BIBFE1213</span>
+    </a>
+    <span class="topbar-note">Your generative AI learning journey starts here</span>
+  </header>
+
+  <main>
+    <section class="page-shell hero" id="home" aria-labelledby="course-title">
+      <div class="hero-copy">
+        <p class="eyebrow greeting">Welcome, students!</p>
+        <h1 id="course-title">BIBFE1213 <span>Introduction to Generative AI Tools</span></h1>
+        <p class="hero-description">
+          Welcome to BIBFE1213 Introduction to Generative AI Tools.
+          Get ready to explore how generative AI works and discover new ways to create.
+        </p>
+        <a class="button" href="#start">Explore the course <span aria-hidden="true">&nbsp;→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit"></div>
+        <div class="art-card">
+          <span class="spark">✳</span>
+          <span class="brain">🧠</span>
+          <span class="art-label">Imagine · Create</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-shell welcome" id="start" aria-labelledby="welcome-title">
+      <p class="eyebrow">A new kind of toolkit</p>
+      <h2 id="welcome-title">Learn by exploring.</h2>
+      <p>
+        Generative AI is changing how people think, work, and make things.
+        In this course, you’ll build your understanding one experiment at a time
+        and learn to approach these tools with creativity and care.
+      </p>
+    </section>
+
+    <section class="page-shell journey" aria-labelledby="journey-title">
+      <div class="journey-heading">
+        <p class="eyebrow">Your learning journey</p>
+        <h2 id="journey-title">What you’ll discover</h2>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">💡</div>
+          <h3>Understand the ideas</h3>
+          <p>Get familiar with generative AI and the ideas behind the tools.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">✍️</div>
+          <h3>Experiment and create</h3>
+          <p>Try new ways to turn your questions and ideas into useful outputs.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">🌱</div>
+          <h3>Use AI thoughtfully</h3>
+          <p>Build good habits for using AI with curiosity, judgement, and care.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="page-shell">BIBFE1213 · Introduction to Generative AI Tools</div>
+  </footer>
+</body>
+</html>
